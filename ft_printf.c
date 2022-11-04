@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_main.c                                    :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:08 by satushi           #+#    #+#             */
-/*   Updated: 2022/10/18 09:17:26 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/04 21:05:18 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,31 @@ static void ft_switch_input(char fmt, va_list args)
 		ft_putchar_string(va_arg(args, char*));
 	if(fmt == 'd' || fmt == 'i')
 		ft_putnbr_string(va_arg(args, int), "0123456789");
+	if (fmt == 'u')
+		ft_putaddr_to_hexia(va_arg(args, unsigned int), "0123456789abcdef");
+	if (fmt == 'p')
+		ft_putaddr_to_hexia(va_arg(args, long long), "0123456789abcdef");
+	if (fmt == 'x')
+		ft_putnum_to_hexia(va_arg(args, unsigned long), "0123456789abcdef");
+	if (fmt == 'X')
+		ft_putnum_to_hexia(va_arg(args, unsigned long), "0123456789ABCDEF");
+	if (fmt == '%')
+		ft_putchar('%');
 }
 
-void ft_print(const char *fmt_or_nch, ...)
+int ft_printf(const char *fmt_or_nch, ...)
 {
 	va_list args;
+	long long counter;
 
+	counter = 0;
 	va_start(args, fmt_or_nch);
 	while(*fmt_or_nch != '\0')
 	{
 		if(*fmt_or_nch == '%')
 		{
-			fmt_or_nch = fmt_or_nch + 1;
-			ft_switch_input(*(fmt_or_nch), args);
-			fmt_or_nch = fmt_or_nch + 1;
+			ft_switch_input(*(fmt_or_nch + 1), args);
+			fmt_or_nch = fmt_or_nch + 2;
 		}
 		else
 		{
@@ -42,11 +53,8 @@ void ft_print(const char *fmt_or_nch, ...)
 				break ;
 			fmt_or_nch = fmt_or_nch + 1;
 		}
+		counter = counter + 1;
 	}
 	va_end(args);
-}
-
-int main()
-{
-	ft_print("this is %s %c %d\n", "your like word", 'd', 1234);
+	return counter;
 }

@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putaddr_to_hexia.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:52 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/04 20:10:44 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/04 20:40:25 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include"ft_print.h"
 
-void ft_putchar(char inputchar_num)
+void    ft_putaddr_to_hexia(long long num, char *basestring)
 {
-	write(1, &inputchar_num, 1);
-}
+    int max_divited_counter;
+    char *addr_box;
 
-void ft_putchar_string(char *sub_string)
-{
-	while(*sub_string != '\0')
-	{
-		ft_putchar(*sub_string);
-		sub_string = sub_string + 1;
-	}
-}
-
-int ft_divide_max(long long num, int divide_num)
-{
-    int counter;
-
-    counter = 0;
-    while(num != 0)
+    max_divited_counter = ft_divide_max(num, 16);
+    addr_box = (char *)malloc(sizeof(char) * (max_divited_counter + 1));
+    addr_box[max_divited_counter - 1] = '\0';
+    max_divited_counter--;
+    while(max_divited_counter != 0)
     {
-        num = num / divide_num;
-        counter = counter + 1;
+        addr_box[max_divited_counter] = basestring[num % 16];
+        num = num / 16;
+        max_divited_counter--;
     }
-    return (counter);
+    addr_box[max_divited_counter] = basestring[num];
 }

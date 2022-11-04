@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_string.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:34 by satushi           #+#    #+#             */
-/*   Updated: 2022/10/18 08:39:48 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/04 20:55:46 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_putnbr_string(int subject_num, const char *base_char)
 	int malloc_size;
 	int subjectnum_copy;
 	char *char_malloc;
-	const char *base_char_const;
 	int base_num;
 
 	base_num = counter_digit(base_char);
