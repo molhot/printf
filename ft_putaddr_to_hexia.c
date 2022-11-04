@@ -6,13 +6,13 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:52 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/04 20:40:25 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/04 21:26:19 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_print.h"
 
-void    ft_putaddr_to_hexia(long long num, char *basestring)
+int    ft_putaddr_to_hexia(long long num, char *basestring)
 {
     int max_divited_counter;
     char *addr_box;
@@ -28,4 +28,6 @@ void    ft_putaddr_to_hexia(long long num, char *basestring)
         max_divited_counter--;
     }
     addr_box[max_divited_counter] = basestring[num];
+    addr_box[max_divited_counter] = basestring[num];
+    return(ft_putchar_string(addr_box));
 }
