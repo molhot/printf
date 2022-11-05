@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:08 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 14:23:44 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 16:29:39 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void ft_switch_input(char fmt, va_list args, size_t *counter)
 	else if(fmt == 's')
 		*counter = *counter + ft_putchar_string(va_arg(args, char*));
 	else if(fmt == 'd' || fmt == 'i')
-		*counter = *counter + ft_putnbr_string(va_arg(args, int), "0123456789");
+		*counter = *counter + inputnbr(va_arg(args, int), "0123456789");
 	else if (fmt == 'u')
-		*counter = *counter + ft_putnbr_string(va_arg(args, unsigned int), "0123456789");
+		*counter = *counter + inputnbr(va_arg(args, unsigned int), "0123456789");
 	else if (fmt == 'p')
 	{
 		*counter = *counter + ft_putchar_string("0x");

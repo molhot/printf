@@ -6,70 +6,71 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:34 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 13:36:03 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 16:58:10 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_print.h"
 
-static int counter_digit(const char *base_num)
+size_t inputnbr(int subject, char* src)
 {
-	int digit;
+	size_t subject_dig;
+	size_t len;
 
-	digit = 0;
-	while(*base_num != '\0')
-	{
-		digit = digit + 1;
-		base_num = base_num + 1;
-	}
-	return digit;
-}
-
-static int num_base(int subject_num, int base_num)
-{
-	int malloc_size;
-
-	malloc_size = 0;
-	if(subject_num == 0)
-		return (1);
-	if(subject_num < 0)
-	{
-		malloc_size = malloc_size + 1;
-		subject_num = subject_num * (-1);
-	}
-	while(subject_num != 0)
-	{
-		malloc_size = malloc_size + 1;
-		subject_num = subject_num / base_num;
-	}
-	return malloc_size;
-}
-
-static char *inputnbr(int subject, int base, int size)
-{
-	char *char_malloc;
-	char p_m;
-
-	char_malloc = (char *)malloc(sizeof(char) * size);
-	if(char_malloc == NULL)
-		return (NULL);
-	char_malloc[size - 1] = '\0';
-	size = size - 1;
+	subject_dig = 1;
+	len = 0;
+	while(subject_dig <= subject)
+		subject_dig = subject_dig * 10;
+	subject_dig = subject_dig / 10;
 	if(subject < 0)
 	{
-		subject= subject * -1;
-		char_malloc[0] = '-';
-		p_m = 'm';
+		subject = subject * (-1);
+		len = len + ft_putchar('-');
 	}
-	else
-		p_m = 'p';
-	while(size != 0)
+	while(subject_dig != 0)
 	{
-		size = size - 1;
-		char_malloc[size] = subject % base + '0';
-		if(size == 1 && p_m == 'm')
-			break ;
-		subject = subject / base;
+		len = len + ft_putchar(src[subject / subject_dig]);
+		subject = subject % subject_dig;
+		subject_dig = subject_dig / 10;
 	}
-	return char_malloc;
+	return len;
+}
+
+size_t    ft_putnum_to_hexia(unsigned long num, char *basestring)
+{
+    int max_divited_counter;
+    char *addr_box;
+
+    max_divited_counter = ft_divide_max(num, 16);
+    addr_box = (char *)malloc(sizeof(char) * (max_divited_counter + 1));
+    addr_box[max_divited_counter - 1] = '\0';
+    max_divited_counter--;
+    while(max_divited_counter != 0)
+    {
+        addr_box[max_divited_counter] = basestring[num % 16];
+        num = num / 16;
+        max_divited_counter--;
+    }
+    addr_box[max_divited_counter] = basestring[num];
+    return(ft_putchar_string(addr_box));
+}
+
+size_t    ft_putaddr_to_hexia(long long num, char *basestring)
+{
+    int max_divited_counter;
+    char *addr_box;
+
+    max_divited_counter = ft_divide_max(num, 16);
+    addr_box = (char *)malloc(sizeof(char) * (max_divited_counter + 1));
+    addr_box[max_divited_counter - 1] = '\0';
+    max_divited_counter = max_divited_counter - 1;
+    while(max_divited_counter != 0)
+    {
+        addr_box[max_divited_counter] = basestring[num % 16];
+		printf("%llu\n", num);
+        num = num / 16;
+        max_divited_counter = max_divited_counter - 1;
+    }
+    addr_box[max_divited_counter] = basestring[num];
+    return(ft_putchar_string(addr_box));
 }
