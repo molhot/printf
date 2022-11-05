@@ -3,25 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnum_to_hexia.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:52 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/04 21:25:50 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 11:57:23 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_print.h"
 
-int    ft_putnum_to_hexia(unsigned long num, char *basestring)
+size_t    ft_putnum_to_hexia(unsigned long num, char *basestring)
 {
     int max_divited_counter;
     char *addr_box;
 
-    if(num < 0)
-    {
-        ft_putchar('-');
-        num = num * (-1);
-    }
     max_divited_counter = ft_divide_max(num, 16);
     addr_box = (char *)malloc(sizeof(char) * (max_divited_counter + 1));
     addr_box[max_divited_counter - 1] = '\0';

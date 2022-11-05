@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putaddr_to_hexia.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:52 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/04 21:26:19 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 11:52:08 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_print.h"
 
-int    ft_putaddr_to_hexia(long long num, char *basestring)
+size_t    ft_putaddr_to_hexia(long long num, char *basestring)
 {
     int max_divited_counter;
     char *addr_box;

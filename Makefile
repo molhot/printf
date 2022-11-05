@@ -13,14 +13,11 @@ all: $(NAME)
 $(NAME):$(OBJS)
 	ar -rc $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar -rc $(NAME) $(OBJS) $(BONUS_OBJS)
-
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(BONUS_OBJS)
+	rm -f all
 
 re: fclean all
 

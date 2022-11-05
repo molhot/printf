@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:52 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/04 21:24:44 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 11:52:33 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_print.h"
 
-int ft_putchar(char inputchar_num)
+size_t ft_putchar(char inputchar_num)
 {
 	write(1, &inputchar_num, 1);
 	return (1);
 }
 
-int ft_putchar_string(char *sub_string)
+size_t ft_putchar_string(char *sub_string)
 {
 	int counter ;
 
@@ -32,7 +32,7 @@ int ft_putchar_string(char *sub_string)
 	return (counter);
 }
 
-int ft_divide_max(long long num, int divide_num)
+size_t ft_divide_max(long long num, int divide_num)
 {
     int counter;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_string.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:34 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/04 20:55:46 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 11:56:08 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,20 @@ static char *inputnbr(int subject, int base, int size)
 	return char_malloc;
 }
 
-void	ft_putnbr_string(int subject_num, const char *base_char)
+size_t	ft_putnbr_string(int subject_num, const char *base_char)
 {
 	int malloc_size;
-	int subjectnum_copy;
 	char *char_malloc;
 	int base_num;
 
 	base_num = counter_digit(base_char);
-	subjectnum_copy = subject_num;
 	malloc_size = num_base(subject_num, base_num);
 	char_malloc = inputnbr(subject_num, base_num, malloc_size);
 	if(char_malloc == NULL)
-		return ;
+		return (0);
 	ft_putchar_string(char_malloc);
 	free(char_malloc);
+	return (malloc_size - 1);
 }
 
 /*
