@@ -6,15 +6,15 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:34 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 16:58:10 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 17:16:40 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_print.h"
 
-size_t inputnbr(int subject, char* src)
+size_t inputnbr(long long subject, char* src)
 {
-	size_t subject_dig;
+	long long subject_dig;
 	size_t len;
 
 	subject_dig = 1;

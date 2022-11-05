@@ -14,6 +14,6 @@ size_t		ft_putchar_string(char *sub_string);
 size_t		ft_putaddr_to_hexia(long long num, char *basestring);
 size_t		ft_putnum_to_hexia(unsigned long num, char *basestring);
 size_t		ft_divide_max(long long num, int divide_num);
-size_t		inputnbr(int subject, char* src);
+size_t		inputnbr(long long subject, char* src);
 
 #endif
