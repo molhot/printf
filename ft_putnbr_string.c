@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:34 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 19:37:40 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 19:57:37 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ size_t inputnbr(long long subject, char* src)
 		len = len + ft_putchar(src[subject]);
     else
 	{
-		len = len + ft_putaddr_to_hexia(subject / 10, src);
-		len = len + ft_putaddr_to_hexia(subject % 10, src);
+		len = len + inputnbr(subject / 10, src);
+		len = len + inputnbr(subject % 10, src);
 	}
     return(len);
 }
 
-size_t    ft_putnum_to_hexia(unsigned int num, char *basestring)
+size_t    ft_putnum_to_hexia(long long num, char *basestring)
 {
     size_t len;
 
@@ -41,8 +41,8 @@ size_t    ft_putnum_to_hexia(unsigned int num, char *basestring)
 		len = len + ft_putchar(basestring[num]);
     else
 	{
-		len = len + ft_putaddr_to_hexia(num / 16, basestring);
-		len = len + ft_putaddr_to_hexia(num % 16, basestring);
+		len = len + ft_putnum_to_hexia(num / 16, basestring);
+		len = len + ft_putnum_to_hexia(num % 16, basestring);
 	}
     return(len);
 }
