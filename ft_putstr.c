@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:52 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 11:52:33 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 13:22:01 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t ft_putchar_string(char *sub_string)
 		sub_string = sub_string + 1;
 		counter = counter + 1;
 	}
-	return (counter);
+	return (counter + 1);
 }
 
 size_t ft_divide_max(long long num, int divide_num)

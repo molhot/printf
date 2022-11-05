@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:08 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 11:55:18 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 14:23:44 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,16 @@ void ft_switch_input(char fmt, va_list args, size_t *counter)
 	else if(fmt == 'd' || fmt == 'i')
 		*counter = *counter + ft_putnbr_string(va_arg(args, int), "0123456789");
 	else if (fmt == 'u')
-		*counter = *counter + ft_putaddr_to_hexia(va_arg(args, unsigned int), "0123456789abcdef");
+		*counter = *counter + ft_putnbr_string(va_arg(args, unsigned int), "0123456789");
 	else if (fmt == 'p')
-		*counter = *counter + ft_putaddr_to_hexia(va_arg(args, long long), "0123456789abcdef");
+	{
+		*counter = *counter + ft_putchar_string("0x");
+		*counter = *counter + ft_putaddr_to_hexia(va_arg(args, unsigned long long), "0123456789abcdef");
+	}
 	else if (fmt == 'x')
-		*counter = *counter + ft_putnum_to_hexia(va_arg(args, unsigned long), "0123456789abcdef");
+		*counter = *counter + ft_putnum_to_hexia(va_arg(args, long long), "0123456789abcdef");
 	else if (fmt == 'X')
-		*counter = *counter + ft_putnum_to_hexia(va_arg(args, unsigned long), "0123456789ABCDEF");
+		*counter = *counter + ft_putnum_to_hexia(va_arg(args, long long), "0123456789ABCDEF");
 }
 
 int ft_printf(const char *fmt_or_nch, ...)

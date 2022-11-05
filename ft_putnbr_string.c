@@ -6,12 +6,11 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:34 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 11:56:08 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 13:36:03 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_print.h"
-#include <stdio.h>
 
 static int counter_digit(const char *base_num)
 {
@@ -31,6 +30,13 @@ static int num_base(int subject_num, int base_num)
 	int malloc_size;
 
 	malloc_size = 0;
+	if(subject_num == 0)
+		return (1);
+	if(subject_num < 0)
+	{
+		malloc_size = malloc_size + 1;
+		subject_num = subject_num * (-1);
+	}
 	while(subject_num != 0)
 	{
 		malloc_size = malloc_size + 1;
@@ -42,44 +48,28 @@ static int num_base(int subject_num, int base_num)
 static char *inputnbr(int subject, int base, int size)
 {
 	char *char_malloc;
+	char p_m;
 
 	char_malloc = (char *)malloc(sizeof(char) * size);
 	if(char_malloc == NULL)
 		return (NULL);
-	*(char_malloc + size) = '\0';
-	while(size-- != 0)
+	char_malloc[size - 1] = '\0';
+	size = size - 1;
+	if(subject < 0)
 	{
-		*(char_malloc + size) = subject % base + '0';
+		subject= subject * -1;
+		char_malloc[0] = '-';
+		p_m = 'm';
+	}
+	else
+		p_m = 'p';
+	while(size != 0)
+	{
+		size = size - 1;
+		char_malloc[size] = subject % base + '0';
+		if(size == 1 && p_m == 'm')
+			break ;
 		subject = subject / base;
 	}
 	return char_malloc;
 }
-
-size_t	ft_putnbr_string(int subject_num, const char *base_char)
-{
-	int malloc_size;
-	char *char_malloc;
-	int base_num;
-
-	base_num = counter_digit(base_char);
-	malloc_size = num_base(subject_num, base_num);
-	char_malloc = inputnbr(subject_num, base_num, malloc_size);
-	if(char_malloc == NULL)
-		return (0);
-	ft_putchar_string(char_malloc);
-	free(char_malloc);
-	return (malloc_size - 1);
-}
-
-/*
-int main()
-{
-	char *base_num_char = "12";
-	int subject_num = 5;
-	int base_num;
-	char *char_subject_num;
-
-	base_num = counter_digit(base_num_char);
-	basenum_char_malloc(subject_num, base_num);
-}
-*/
