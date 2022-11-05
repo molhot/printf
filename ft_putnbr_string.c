@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:34 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 18:14:13 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 19:37:40 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ size_t inputnbr(long long subject, char* src)
     return(len);
 }
 
-size_t    ft_putnum_to_hexia(unsigned long num, char *basestring)
+size_t    ft_putnum_to_hexia(unsigned int num, char *basestring)
 {
     size_t len;
 
@@ -47,7 +47,7 @@ size_t    ft_putnum_to_hexia(unsigned long num, char *basestring)
     return(len);
 }
 
-size_t    ft_putaddr_to_hexia(long long num, char *basestring)
+size_t    ft_putaddr_to_hexia(unsigned long long num, char *basestring)
 {
 	size_t len;
 

@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:08 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 16:29:39 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 19:39:38 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void ft_switch_input(char fmt, va_list args, size_t *counter)
 		*counter = *counter + ft_putaddr_to_hexia(va_arg(args, unsigned long long), "0123456789abcdef");
 	}
 	else if (fmt == 'x')
-		*counter = *counter + ft_putnum_to_hexia(va_arg(args, long long), "0123456789abcdef");
+		*counter = *counter + ft_putnum_to_hexia(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (fmt == 'X')
-		*counter = *counter + ft_putnum_to_hexia(va_arg(args, long long), "0123456789ABCDEF");
+		*counter = *counter + ft_putnum_to_hexia(va_arg(args, unsigned int), "0123456789ABCDEF");
 }
 
 int ft_printf(const char *fmt_or_nch, ...)
