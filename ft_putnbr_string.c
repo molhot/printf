@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:34 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 17:56:25 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 17:59:08 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ size_t    ft_putnum_to_hexia(unsigned long num, char *basestring)
 
 size_t    ft_putaddr_to_hexia(long long num, char *basestring)
 {
-    int max_divited_counter;
-	long long divide_max;
     char *addr_box;
 	size_t len;
 
