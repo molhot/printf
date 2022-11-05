@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 07:44:52 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/05 16:40:14 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/05 17:27:08 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ size_t ft_putchar_string(char *sub_string)
 {
 	size_t len;
 
+	if(sub_string == NULL)
+		return 0;
 	len = 0;
-	while(*sub_string != '\0')
-	{
-		sub_string = sub_string + 1;
+	while(sub_string[len] != '\0')
 		len = len + 1;
-	}
 	return (write(1, sub_string, len));
 }
 
